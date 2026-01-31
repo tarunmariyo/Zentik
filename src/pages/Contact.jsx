@@ -10,6 +10,8 @@ const Contact = () => {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
@@ -18,35 +20,64 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
     
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'e3a813be-a91c-40cf-890f-4f53c3fb0976', // Replace with your Web3Forms access key
+          to_email: 'contact@zentik.info',
+          from_name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Contact Form Submission from ${formData.name}`,
+        }),
+      })
+
+      const result = await response.json()
+      
+      if (result.success) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 5000)
+      } else {
+        setError('Failed to send message. Please try again.')
+      }
+    } catch (err) {
+      setError('Failed to send message. Please try again or email us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const contactInfo = [
     {
       icon: FaEnvelope,
       title: 'Email',
-      content: 'contact@zenithpact.com',
-      link: 'mailto:contact@zenithpact.com'
+      content: 'contact@zentik.info',
+      link: 'mailto:contact@zentik.info'
     },
     {
       icon: FaPhone,
       title: 'Phone',
-      content: '+91 98765 43210',
-      link: 'tel:+919876543210'
+      content: '+91 9217526787',
+      link: 'tel:+919217526787'
     },
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: 'Zenith Pact Pvt. Ltd., Bengaluru, India',
+      content: 'VDS A1/B Sector 16, Gautam Budha Nagar, Uttar Pradesh, 201301',
       link: null
     }
   ]
@@ -92,7 +123,17 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-500/10 border border-green-500/50 rounded-lg text-green-500"
                 >
-                  Thank you! Your message has been sent successfully.
+                  Thank you! Your message has been sent successfully to contact@zentik.info
+                </motion.div>
+              )}
+
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-500"
+                >
+                  {error}
                 </motion.div>
               )}
 
@@ -151,11 +192,12 @@ const Contact = () => {
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-primary hover:bg-[#007A8C] text-[var(--text-primary)] font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-primary/50"
+                  disabled={loading}
+                  whileHover={{ scale: loading ? 1 : 1.05 }}
+                  whileTap={{ scale: loading ? 1 : 0.95 }}
+                  className={`w-full bg-primary hover:bg-[#007A8C] text-[var(--text-primary)] font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-primary/50 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </motion.button>
               </form>
             </div>
@@ -224,22 +266,28 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Map Placeholder */}
+            {/* Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="relative overflow-hidden rounded-xl h-64 border border-[var(--border-color)]"
+              className="relative overflow-hidden rounded-xl h-80 border border-[var(--border-color)]"
             >
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop"
-                alt="Bengaluru Office"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent flex items-end p-6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.456!2d77.3165!3d28.5705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sSector%2016%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1706600000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Zentik IT Solution Office Location"
+                className="w-full h-full"
+              ></iframe>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark via-dark/80 to-transparent p-6">
                 <div>
                   <h4 className="text-xl font-bold text-[var(--text-primary)]">Visit Our Office</h4>
-                  <p className="text-[var(--text-secondary)]">Bengaluru, India</p>
+                  <p className="text-[var(--text-secondary)]">VDS A1/B Sector 16, Gautam Budha Nagar, UP</p>
                 </div>
               </div>
             </motion.div>

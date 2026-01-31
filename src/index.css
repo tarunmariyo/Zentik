@@ -61,3 +61,232 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-hover);
 }
+
+/* Hero section - hide animated background behind globe */
+.hero-section-bg {
+  position: relative;
+}
+
+.hero-section-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-primary);
+  z-index: -1;
+}
+
+/* Animated Background */
+.animated-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  will-change: transform, opacity;
+}
+
+/* Orb 1 - Primary teal, top-left */
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 152, 172, 0.6) 0%, transparent 70%);
+  top: -10%;
+  left: -5%;
+  animation: float1 20s ease-in-out infinite, breathe 8s ease-in-out infinite;
+}
+
+/* Orb 2 - Purple accent, top-right */
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 70%);
+  top: 5%;
+  right: -5%;
+  animation: float2 25s ease-in-out infinite, breathe 10s ease-in-out infinite 2s;
+}
+
+/* Orb 3 - Blue accent, center-left */
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%);
+  top: 40%;
+  left: 5%;
+  animation: float3 22s ease-in-out infinite, breathe 9s ease-in-out infinite 1s;
+}
+
+/* Orb 4 - Teal, bottom-right */
+.orb-4 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 152, 172, 0.5) 0%, transparent 70%);
+  bottom: -10%;
+  right: 10%;
+  animation: float4 18s ease-in-out infinite, breathe 7s ease-in-out infinite 3s;
+}
+
+/* Orb 5 - Green accent, center */
+.orb-5 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float5 24s ease-in-out infinite, breathe 11s ease-in-out infinite 4s;
+}
+
+/* Orb 6 - Pink accent, bottom-left */
+.orb-6 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, transparent 70%);
+  bottom: 5%;
+  left: -8%;
+  animation: float6 21s ease-in-out infinite, breathe 8s ease-in-out infinite 5s;
+}
+
+/* Breathing animation - gentle opacity pulsing */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Float animations - slow movement */
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, 20px) scale(1.05);
+  }
+  50% {
+    transform: translate(10px, 40px) scale(0.95);
+  }
+  75% {
+    transform: translate(-20px, 15px) scale(1.02);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-25px, 30px) scale(0.98);
+  }
+  50% {
+    transform: translate(-40px, 10px) scale(1.04);
+  }
+  75% {
+    transform: translate(-15px, -20px) scale(0.96);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -25px) scale(1.03);
+  }
+  66% {
+    transform: translate(35px, 15px) scale(0.97);
+  }
+}
+
+@keyframes float4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-30px, -20px) scale(0.95);
+  }
+  50% {
+    transform: translate(-15px, -35px) scale(1.05);
+  }
+  75% {
+    transform: translate(20px, -10px) scale(1);
+  }
+}
+
+@keyframes float5 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  25% {
+    transform: translate(-45%, -55%) scale(1.08);
+  }
+  50% {
+    transform: translate(-55%, -48%) scale(0.92);
+  }
+  75% {
+    transform: translate(-48%, -52%) scale(1.04);
+  }
+}
+
+@keyframes float6 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(25px, -15px) scale(1.02);
+  }
+  66% {
+    transform: translate(10px, 20px) scale(0.98);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glow-orb {
+    filter: blur(60px);
+  }
+  
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orb-4 {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .orb-5 {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .orb-6 {
+    width: 220px;
+    height: 220px;
+  }
+}

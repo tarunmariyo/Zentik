@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { FaLightbulb, FaUsers, FaHeart, FaRocket } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { FaLightbulb, FaUsers, FaHeart, FaRocket, FaEnvelope } from 'react-icons/fa'
 
 const AnimatedCounter = ({ end, duration = 2, suffix = '' }) => {
   const [count, setCount] = useState(0)
@@ -61,34 +62,11 @@ const About = () => {
     }
   ]
 
-  const teamMembers = [
-    {
-      name: 'Sarah Johnson',
-      role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop'
-    },
-    {
-      name: 'Emily Rodriguez',
-      role: 'Head of Design',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop'
-    },
-    {
-      name: 'David Kumar',
-      role: 'Lead Developer',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
-    }
-  ]
-
   const stats = [
-    { number: 10, suffix: '+', label: 'Years Experience' },
-    { number: 200, suffix: '+', label: 'Happy Clients' },
-    { number: 300, suffix: '+', label: 'Projects Completed' },
-    { number: 50, suffix: '+', label: 'Team Members' }
+    { number: '2+', label: 'Years Experience', icon: '🚀', color: 'from-blue-500/20 to-primary/20' },
+    { number: '30+', label: 'Happy Clients', icon: '😊', color: 'from-green-500/20 to-primary/20' },
+    { number: '50+', label: 'Projects Completed', icon: '✅', color: 'from-purple-500/20 to-primary/20' },
+    { number: '25+', label: 'Team Members', icon: '👥', color: 'from-orange-500/20 to-primary/20' }
   ]
 
   return (
@@ -102,14 +80,14 @@ const About = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            About <span className="text-primary">Zenith Pact</span>
+            About <span className="text-primary">Zentik IT Solution</span>
           </h1>
           <p className="text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed">
-            Empowering businesses worldwide with innovative IT solutions since 2014.
+            Empowering businesses worldwide with innovative IT solutions since 2023.
           </p>
         </motion.div>
 
-        {/* Mission Section */}
+        {/* About Company Section */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,15 +97,74 @@ const About = () => {
         >
           <div className="bg-gradient-to-br from-dark to-gray-900 p-12 rounded-2xl border border-[var(--border-color)]">
             <h2 className="text-4xl font-bold mb-6 text-center">
-              Our <span className="text-primary">Mission</span>
+              Our <span className="text-primary">Company</span>
             </h2>
-            <p className="text-xl text-[var(--text-secondary)] leading-relaxed text-center max-w-4xl mx-auto">
-              At Zenith Pact, our mission is to transform businesses through innovative
-              technology solutions. We strive to be the trusted partner that empowers
-              organizations to achieve their digital transformation goals, driving growth,
-              efficiency, and competitive advantage in an ever-evolving technological
-              landscape.
+            <p className="text-xl text-[var(--text-secondary)] leading-relaxed text-center max-w-4xl mx-auto mb-6">
+              Zentik IT Solution is a leading technology company dedicated to delivering innovative 
+              digital solutions that transform businesses. Since our founding in 2023, we have been 
+              at the forefront of digital transformation, helping organizations across industries 
+              leverage cutting-edge technology to achieve their goals.
             </p>
+            <p className="text-lg text-[var(--text-tertiary)] leading-relaxed text-center max-w-4xl mx-auto">
+              Our comprehensive suite of services includes web development, mobile applications, 
+              cloud solutions, AI integration, cybersecurity, and digital marketing. We combine 
+              technical expertise with creative thinking to deliver solutions that not only meet 
+              but exceed our clients' expectations.
+            </p>
+          </div>
+        </motion.section>
+
+        {/* Director Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Our <span className="text-primary">Leadership</span>
+          </h2>
+          <div className="flex flex-col lg:flex-row items-center gap-12 bg-gradient-to-br from-dark to-gray-900 p-8 lg:p-12 rounded-2xl border border-[var(--border-color)]">
+            {/* Director Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0"
+            >
+              <div className="relative">
+                <img
+                  src="/assets/ceo.png"
+                  alt="Director - Zentik IT Solution"
+                  className="w-64 h-auto lg:w-80 lg:h-auto object-contain rounded-2xl shadow-2xl"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop'
+                  }}
+                />
+              </div>
+            </motion.div>
+
+            {/* Director Info */}
+            <div className="flex-1 text-center lg:text-left">
+              <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-2">
+                Rohit Kumar
+              </h3>
+              <p className="text-xl text-primary mb-6">Director</p>
+              <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
+                With over 4 years of experience in the IT industry, Rohit Kumar leads Zentik IT Solution 
+                with a vision to bridge the gap between technology and business success. His strategic 
+                leadership and technical expertise have been instrumental in establishing Zentik as a 
+                trusted partner for businesses seeking digital excellence.
+              </p>
+              <p className="text-[var(--text-tertiary)] leading-relaxed">
+                Under his guidance, Zentik IT Solution has successfully delivered 50+ projects across 
+                various industries including healthcare, finance, e-commerce, and education. Rohit's 
+                commitment to innovation, quality delivery, and client satisfaction continues to drive 
+                the company's growth and success in the competitive IT landscape.
+              </p>
+            </div>
           </div>
         </motion.section>
 
@@ -139,57 +176,34 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="text-primary">Impact</span>
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-8 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl border border-primary/30"
-              >
-                <h3 className="text-5xl font-bold text-primary mb-3">
-                  <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                </h3>
-                <p className="text-[var(--text-tertiary)] text-lg">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Team Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Meet Our <span className="text-primary">Team</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className={`relative text-center p-8 bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-2xl border border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-lg hover:shadow-primary/30 overflow-hidden group`}
               >
-                <div className="relative overflow-hidden rounded-xl mb-4">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-300"></div>
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4">{stat.icon}</div>
+                  <h3 className="text-6xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform duration-300">{stat.number}</h3>
+                  <p className="text-[var(--text-secondary)] text-lg font-semibold">{stat.label}</p>
                 </div>
-                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">{member.name}</h3>
-                <p className="text-primary">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -201,6 +215,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="mb-20"
         >
           <h2 className="text-4xl font-bold mb-12 text-center">
             Our <span className="text-primary">Values</span>
@@ -229,31 +244,33 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Office Image */}
+        {/* Careers CTA Section */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20"
         >
           <div className="relative overflow-hidden rounded-2xl h-96">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=400&fit=crop"
-              alt="Zenith Pact Office"
+              alt="Zentik IT Solution Office"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark/80 to-primary/20 flex items-center justify-center">
-              <div className="text-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-dark/90 to-primary/30 flex items-center justify-center">
+              <div className="text-center px-4">
                 <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
                   Join Our Team
                 </h2>
-                <p className="text-xl text-[var(--text-secondary)] mb-6">
-                  Be part of something extraordinary
+                <p className="text-xl text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
+                  Be part of something extraordinary. Explore exciting career opportunities at Zentik IT Solution.
                 </p>
-                <button className="bg-primary hover:bg-[#007A8C] text-[var(--text-primary)] font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                <Link
+                  to="/careers"
+                  className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
+                >
                   View Careers
-                </button>
+                </Link>
               </div>
             </div>
           </div>

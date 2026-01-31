@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaCode, FaMobile, FaCloud, FaBrain, FaRocket, FaShieldAlt } from 'react-icons/fa'
+import { FaCode, FaMobile, FaCloud, FaBrain, FaRocket, FaShieldAlt, FaSearch, FaBullhorn, FaPaintBrush, FaChartLine } from 'react-icons/fa'
 
 const Services = () => {
   const services = [
     {
+      id: 'web-development',
       icon: FaCode,
       title: 'Web Development',
       description:
@@ -12,6 +13,7 @@ const Services = () => {
       features: ['Custom Web Apps', 'E-commerce Solutions', 'CMS Development']
     },
     {
+      id: 'mobile-app-development',
       icon: FaMobile,
       title: 'Mobile App Development',
       description:
@@ -19,6 +21,7 @@ const Services = () => {
       features: ['iOS & Android Apps', 'React Native', 'Flutter Development']
     },
     {
+      id: 'cloud-solutions',
       icon: FaCloud,
       title: 'Cloud Solutions',
       description:
@@ -26,6 +29,7 @@ const Services = () => {
       features: ['Cloud Migration', 'DevOps Services', 'Infrastructure Management']
     },
     {
+      id: 'ai-data-integration',
       icon: FaBrain,
       title: 'AI & Data Integration',
       description:
@@ -33,6 +37,7 @@ const Services = () => {
       features: ['Machine Learning', 'Data Analytics', 'AI Chatbots']
     },
     {
+      id: 'digital-transformation',
       icon: FaRocket,
       title: 'Digital Transformation',
       description:
@@ -40,11 +45,44 @@ const Services = () => {
       features: ['Process Automation', 'Digital Strategy', 'Innovation Consulting']
     },
     {
+      id: 'cybersecurity',
       icon: FaShieldAlt,
       title: 'Cybersecurity',
       description:
         'Protect your digital assets with comprehensive security solutions including penetration testing and security audits.',
       features: ['Security Audits', 'Threat Detection', 'Compliance Management']
+    },
+    {
+      id: 'seo-optimization',
+      icon: FaSearch,
+      title: 'SEO Optimization',
+      description:
+        'Boost your online visibility and rankings with comprehensive SEO strategies, technical optimization, and content enhancement.',
+      features: ['Technical SEO', 'Content Optimization', 'Link Building']
+    },
+    {
+      id: 'digital-marketing',
+      icon: FaBullhorn,
+      title: 'Digital Marketing',
+      description:
+        'Drive growth with data-driven digital marketing campaigns including social media, PPC, email marketing, and content strategy.',
+      features: ['Social Media Marketing', 'PPC Campaigns', 'Email Marketing']
+    },
+    {
+      id: 'uiux-design',
+      icon: FaPaintBrush,
+      title: 'UI/UX Design',
+      description:
+        'Create beautiful, intuitive user interfaces and experiences that delight users and drive engagement with your digital products.',
+      features: ['User Research', 'Wireframing & Prototyping', 'Visual Design']
+    },
+    {
+      id: 'business-analytics',
+      icon: FaChartLine,
+      title: 'Business Analytics',
+      description:
+        'Transform data into actionable insights with advanced analytics, reporting dashboards, and business intelligence solutions.',
+      features: ['Data Visualization', 'Predictive Analytics', 'Custom Reports']
     }
   ]
 
@@ -103,7 +141,10 @@ const Services = () => {
               </ul>
 
               {/* Learn More Button */}
-              <button className="text-primary hover:text-[#00B8CE] font-semibold transition-colors duration-300 flex items-center group">
+              <Link 
+                to={`/services/${service.id}`}
+                className="text-primary hover:text-[#00B8CE] font-semibold transition-colors duration-300 flex items-center group"
+              >
                 Learn More
                 <svg
                   className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
@@ -118,7 +159,7 @@ const Services = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>

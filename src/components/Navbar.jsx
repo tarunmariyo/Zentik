@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi'
-import { useTheme } from '../context/ThemeContext'
+import { HiMenu, HiX } from 'react-icons/hi'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,18 +38,18 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-3">
             <img
               src="/assets/companylogo.png"
-              alt="Zenith Pact Logo"
-              className="h-12 w-auto object-contain"
+              alt="Zentik IT Solution Logo"
+              className="h-16 w-auto object-contain"
               onError={(e) => {
                 e.target.style.display = 'none'
                 e.target.nextSibling.style.display = 'flex'
               }}
             />
             <div
-              className="h-12 w-12 bg-primary rounded-lg flex items-center justify-center"
+              className="h-16 w-16 bg-primary rounded-lg flex items-center justify-center"
               style={{ display: 'none' }}
             >
-              <span className="text-white font-bold text-xl">ZP</span>
+              <span className="text-white font-bold text-2xl">ZI</span>
             </div>
           </Link>
 
@@ -76,36 +74,10 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <HiSun className="text-2xl text-primary" />
-              ) : (
-                <HiMoon className="text-2xl text-primary" />
-              )}
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
-            {/* Mobile Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <HiSun className="text-xl text-primary" />
-              ) : (
-                <HiMoon className="text-xl text-primary" />
-              )}
-            </button>
-            
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-[var(--text-primary)] text-3xl focus:outline-none"

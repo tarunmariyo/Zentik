@@ -34,18 +34,18 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img
                 src="/assets/companylogo.png"
-                alt="Zenith Pact"
-                className="h-10 w-auto object-contain"
+                alt="Zentik IT Solution"
+                className="h-14 w-auto object-contain"
                 onError={(e) => {
                   e.target.style.display = 'none'
                   e.target.nextSibling.style.display = 'flex'
                 }}
               />
               <div
-                className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center"
+                className="h-14 w-14 bg-primary rounded-lg flex items-center justify-center"
                 style={{ display: 'none' }}
               >
-                <span className="text-white font-bold">ZP</span>
+                <span className="text-white font-bold text-lg">ZI</span>
               </div>
             </div>
             <p className="text-[var(--text-tertiary)] text-sm leading-relaxed">
@@ -90,10 +90,10 @@ const Footer = () => {
             </div>
             <div className="mt-6">
               <p className="text-[var(--text-tertiary)] text-sm">
-                <strong className="text-[var(--text-primary)]">Email:</strong> contact@zenithpact.com
+                <strong className="text-[var(--text-primary)]">Email:</strong> contact@zentik.info
               </p>
               <p className="text-[var(--text-tertiary)] text-sm mt-2">
-                <strong className="text-[var(--text-primary)]">Phone:</strong> +91 98765 43210
+                <strong className="text-[var(--text-primary)]">Phone:</strong> +91 9217526787
               </p>
             </div>
           </div>
@@ -102,7 +102,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-[var(--border-color)] mt-8 pt-8 text-center">
           <p className="text-[var(--text-tertiary)] text-sm">
-            &copy; {currentYear} Zenith Pact. All rights reserved.
+            &copy; {currentYear} Zentik IT Solution. All rights reserved.
           </p>
         </div>
       </div>

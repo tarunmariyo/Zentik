@@ -1,38 +1,49 @@
-# Zenith Pact - IT Solutions Website
+# Zentik IT Solution
 
-A complete, professional multi-page website for Zenith Pact, an IT Solutions provider. Built with React, Tailwind CSS, Framer Motion, and React Three Fiber.
+A modern, professional multi-page website for Zentik IT Solution, showcasing innovative IT services and solutions. Built with React, Tailwind CSS, Framer Motion, and React Three Fiber.
 
 ## 🚀 Features
 
 - **Multi-page Architecture** with React Router DOM
-- **Dark Futuristic Design** with electric blue accents (#3b82f6)
-- **3D Earth Globe Animation** using React Three Fiber on the home page
+- **Dark/Light Theme Toggle** with persistent theme preference
+- **3D Interactive Elements** using React Three Fiber
 - **Smooth Animations** powered by Framer Motion
 - **Fully Responsive** design for all screen sizes
 - **Modern UI Components** with Tailwind CSS
+- **Dynamic Service Pages** with detailed information
+- **Careers Section** for job opportunities
+- **Animated Backgrounds** for enhanced visual experience
 
 ## 📁 Project Structure
 
 ```
-ZenithPact/
+Zentik IT Solution/
 ├── public/
 │   └── assets/
-│       ├── logo.png (place your logo here)
-│       └── README.md
+│       ├── companylogo.png
+│       ├── ceo.png
+│       ├── ananyapatel.jpeg
+│       ├── priyasharma.jpeg
+│       └── rajeshkumar.jpeg
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx          # Sticky navigation with active page highlighting
-│   │   ├── Footer.jsx          # Footer with social links and quick navigation
-│   │   ├── EarthGlobe.jsx      # 3D rotating Earth globe
-│   │   └── ScrollToTop.jsx     # Scroll to top button
+│   │   ├── Navbar.jsx              # Sticky navigation with theme toggle
+│   │   ├── Footer.jsx              # Footer with social links
+│   │   ├── EarthGlobe.jsx          # 3D rotating Earth globe
+│   │   ├── ScrollToTop.jsx         # Scroll to top button
+│   │   └── AnimatedBackground.jsx  # Dynamic animated background
 │   ├── pages/
-│   │   ├── Home.jsx            # Hero section with 3D globe, overview, and stats
-│   │   ├── Services.jsx        # Service cards with hover animations
-│   │   ├── About.jsx           # Mission, team, values, and animated counters
-│   │   └── Contact.jsx         # Contact form and company details
-│   ├── App.jsx                 # Main app with routing
-│   ├── main.jsx                # Entry point
-│   └── index.css               # Global styles and Tailwind imports
+│   │   ├── Home.jsx                # Hero section with 3D elements
+│   │   ├── Services.jsx            # Service cards with animations
+│   │   ├── ServiceDetail.jsx       # Detailed service information
+│   │   ├── About.jsx               # Company mission and team
+│   │   ├── Contact.jsx             # Contact form and details
+│   │   └── Careers.jsx             # Job opportunities
+│   ├── context/
+│   │   └── ThemeContext.jsx        # Theme management
+│   ├── App.jsx                     # Main app with routing
+│   ├── main.jsx                    # Entry point
+│   └── index.css                   # Global styles
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -44,36 +55,39 @@ ZenithPact/
 
 ### Home Page (`/`)
 - Hero section with animated heading and CTA button
-- Realistic 3D rotating Earth globe (React Three Fiber)
-- Company overview with IT-related images
+- Interactive 3D elements
+- Company overview
 - Statistics counters (Years, Clients, Projects, Team)
-- Scroll-triggered fade-in and slide-up animations
+- Scroll-triggered animations
 
 ### Services Page (`/services`)
-- 6 service cards with icons:
+- Comprehensive service offerings:
   - Web Development
   - Mobile App Development
   - Cloud Solutions
   - AI & Data Integration
   - Digital Transformation
   - Cybersecurity
-- Hover scaling animations
+- Detailed service pages with in-depth information
 - "Request a Quote" CTA section
 
 ### About Page (`/about`)
-- Company mission statement
+- Company mission and vision
 - Animated stat counters
-- Team member profiles with hover effects
-- Core values with icons
-- Office image section
+- Team member profiles with images
+- Core values showcase
+- Company culture highlights
 
 ### Contact Page (`/contact`)
-- Contact form (Name, Email, Message)
-- Form submission with console logging
+- Interactive contact form
 - Contact details (Email, Phone, Address)
-- Social media icons
+- Social media integration
 - Working hours information
-- Office location image
+
+### Careers Page (`/careers`)
+- Current job openings
+- Company culture overview
+- Application process
 
 ## 🛠️ Technologies Used
 
@@ -87,6 +101,11 @@ ZenithPact/
 - **Vite 5.0** - Build tool
 
 ## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 16+ installed
+- npm or yarn package manager
 
 ### Installation
 
@@ -120,25 +139,24 @@ npm run preview
 
 ## 🎨 Customization
 
+### Theme
+The website features a dark/light theme toggle. Users can switch between themes, and their preference is saved in localStorage.
+
 ### Colors
-Update the primary color in `tailwind.config.js`:
-```javascript
-colors: {
-  primary: '#3b82f6', // Change this to your brand color
-}
-```
+Update the color scheme in `tailwind.config.js` and the theme configuration in `src/context/ThemeContext.jsx`.
 
 ### Logo
-Place your logo file at `public/assets/logo.png` (recommended: 200x200px, PNG with transparent background)
+Replace the logo at `public/assets/companylogo.png` with your own company logo.
 
 ### Images
-Replace placeholder Unsplash images with your own in the respective page files.
+Update team member photos and other images in the `public/assets/` directory.
 
 ### Contact Information
 Update contact details in `src/pages/Contact.jsx`:
-- Email: contact@zenithpact.com
-- Phone: +91 98765 43210
-- Address: Zenith Pact Pvt. Ltd., Bengaluru, India
+- Email
+- Phone
+- Address
+- Social media links
 
 ## ✨ Key Features
 
@@ -146,20 +164,26 @@ Update contact details in `src/pages/Contact.jsx`:
 - Page transitions between routes
 - Scroll-triggered animations (fade-in, slide-up)
 - Hover effects on cards, buttons, and images
-- Animated counters on About page
-- Navbar fade-down entrance
-- Scroll-to-top button
+- Animated counters
+- Navbar animations
+- Animated backgrounds
+- Scroll-to-top functionality
 
-### 3D Globe
-- Realistic Earth-like sphere with distortion effect
-- Auto-rotation and manual orbit controls
-- Environment lighting for realism
+### 3D Elements
+- Interactive 3D globe on the home page
 - Optimized for performance
+- Responsive rendering
+
+### Theme System
+- Dark and light theme support
+- Persistent theme preference
+- Smooth theme transitions
+- System-wide theme consistency
 
 ### Responsive Design
 - Mobile-first approach
 - Breakpoints: mobile, tablet, desktop
-- Hamburger menu for mobile navigation
+- Adaptive navigation
 - Flexible grid layouts
 
 ## 📱 Responsive Breakpoints
@@ -168,21 +192,28 @@ Update contact details in `src/pages/Contact.jsx`:
 - Tablet: 768px - 1024px
 - Desktop: > 1024px
 
-## 🔧 Environment Variables
+## 🔧 Configuration
 
-Currently, no environment variables are required. For production deployment, you may want to add:
+### Environment Variables
+For production deployment, you may want to add:
 - API endpoints for contact form backend
 - Analytics tracking IDs
 - Third-party service keys
 
+Create a `.env` file in the root directory:
+```env
+VITE_API_URL=your_api_url
+VITE_ANALYTICS_ID=your_analytics_id
+```
+
 ## 📄 License
 
-© 2025 Zenith Pact. All rights reserved.
+© 2025 Zentik IT Solution. All rights reserved.
 
 ## 🤝 Support
 
-For support, email contact@zenithpact.com or visit our Contact page.
+For support, visit our Contact page or reach out through our website.
 
 ---
 
-Built with ❤️ by Zenith Pact Team
+Built with ❤️ by the Zentik IT Solution Team
