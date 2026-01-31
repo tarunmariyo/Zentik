@@ -115,7 +115,7 @@ const Home = () => {
             </h2>
             <p className="text-xl text-[var(--text-tertiary)] max-w-4xl mx-auto leading-relaxed mb-8">
               We are a leading IT solutions provider specializing in web development,
-              mobile applications, cloud infrastructure, and AI integration. Founded in 2014,
+              mobile applications, cloud infrastructure, and AI integration. Founded in 2023,
               Zentik IT Solution has been at the forefront of digital transformation, helping businesses
               worldwide leverage technology to achieve their goals.
             </p>
