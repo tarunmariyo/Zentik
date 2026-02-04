@@ -45,21 +45,21 @@ const Home = () => {
       {/* Hero Section with Scroll Animations */}
       <section 
         ref={heroRef}
-        className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden hero-section-bg"
+        className="min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 relative overflow-hidden hero-section-bg"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left Content - Text with Stagger Fade */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left space-y-6 relative z-10"
+            className="text-center lg:text-left space-y-4 sm:space-y-6 relative z-10 order-2 lg:order-1"
           >
             {/* Heading - Fades first */}
             <motion.h1
               variants={itemVariants}
               style={{ y: headingY, opacity: headingOpacity }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
             >
               Empowering Innovation with{' '}
               <span className="text-primary">IT Solutions</span>
@@ -69,7 +69,7 @@ const Home = () => {
             <motion.p
               variants={itemVariants}
               style={{ y: subtextY, opacity: subtextOpacity }}
-              className="text-xl md:text-2xl text-[var(--text-tertiary)] leading-relaxed"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-[var(--text-tertiary)] leading-relaxed px-2 lg:px-0"
             >
               Driving businesses forward with technology, creativity, and expertise.
             </motion.p>
@@ -81,7 +81,7 @@ const Home = () => {
             >
               <Link
                 to="/services"
-                className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
+                className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
               >
                 Explore Our Services
               </Link>
@@ -93,7 +93,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full h-[500px] lg:h-[600px] relative z-0"
+            className="w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] relative z-0 order-1 lg:order-2"
           >
             <EarthGlobe />
           </motion.div>
@@ -101,25 +101,25 @@ const Home = () => {
       </section>
 
       {/* Overview Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               About <span className="text-primary">Zentik IT Solution</span>
             </h2>
-            <p className="text-xl text-[var(--text-tertiary)] max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] max-w-4xl mx-auto leading-relaxed mb-4 sm:mb-8 px-2">
               We are a leading IT solutions provider specializing in web development,
               mobile applications, cloud infrastructure, and AI integration. Founded in 2023,
               Zentik IT Solution has been at the forefront of digital transformation, helping businesses
               worldwide leverage technology to achieve their goals.
             </p>
-            <p className="text-lg text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed px-2">
               Our team of expert developers, designers, and consultants bring years of experience
               and a passion for innovation to every project. We don't just build software—we create
               solutions that drive measurable business results and deliver exceptional user experiences.
@@ -129,24 +129,24 @@ const Home = () => {
       </section>
 
       {/* Services Glimpse Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent to-[var(--bg-secondary)]/30">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-transparent to-[var(--bg-secondary)]/30">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Our <span className="text-primary">Services</span>
             </h2>
-            <p className="text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed px-2">
               Comprehensive IT solutions tailored to your business needs
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 icon: FaCode,
@@ -214,22 +214,22 @@ const Home = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-8 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/30"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-4 sm:p-6 md:p-8 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/30"
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="text-4xl text-primary" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                  <service.icon className="text-2xl sm:text-3xl md:text-4xl text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{service.title}</h3>
-                <p className="text-[var(--text-tertiary)] mb-6 leading-relaxed">{service.description}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-2 sm:mb-4">{service.title}</h3>
+                <p className="text-sm sm:text-base text-[var(--text-tertiary)] mb-4 sm:mb-6 leading-relaxed">{service.description}</p>
                 <Link
                   to={service.link}
-                  className="text-primary hover:text-[#00B8CE] font-semibold transition-colors duration-300 flex items-center group"
+                  className="text-primary hover:text-[#00B8CE] font-semibold transition-colors duration-300 flex items-center group text-sm sm:text-base"
                 >
                   Learn More
                   <svg
-                    className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
+                    className="w-3 h-3 sm:w-4 sm:h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -246,11 +246,11 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center mt-12"
+            className="text-center mt-8 sm:mt-12"
           >
             <Link
               to="/services"
-              className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
+              className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
             >
               View All Services
             </Link>
@@ -259,24 +259,24 @@ const Home = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Featured <span className="text-primary">Projects</span>
             </h2>
-            <p className="text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed px-2">
               Showcasing our recent work and successful implementations
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 title: 'E-Commerce Platform',
@@ -305,10 +305,10 @@ const Home = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-primary/50 transition-all duration-300 border border-[var(--border-color)] hover:border-primary/50"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -316,15 +316,15 @@ const Home = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-transparent"></div>
                 </div>
-                <div className="p-6 bg-[var(--bg-secondary)]">
-                  <span className="text-primary text-sm font-semibold">{project.category}</span>
-                  <h3 className="text-2xl font-bold text-[var(--text-primary)] mt-2 mb-3">{project.title}</h3>
-                  <p className="text-[var(--text-tertiary)] mb-4 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                <div className="p-4 sm:p-5 md:p-6 bg-[var(--bg-secondary)]">
+                  <span className="text-primary text-xs sm:text-sm font-semibold">{project.category}</span>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] mt-1 sm:mt-2 mb-2 sm:mb-3">{project.title}</h3>
+                  <p className="text-sm sm:text-base text-[var(--text-tertiary)] mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-none">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/30"
+                        className="px-2 sm:px-3 py-0.5 sm:py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/30"
                       >
                         {tech}
                       </span>
@@ -338,24 +338,24 @@ const Home = () => {
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-[var(--bg-secondary)]/30 to-transparent">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-[var(--bg-secondary)]/30 to-transparent">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
               Client <span className="text-primary">Testimonials</span>
             </h2>
-            <p className="text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] max-w-3xl mx-auto leading-relaxed px-2">
               What our clients say about working with us
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 name: 'Priya Sharma',
@@ -384,27 +384,27 @@ const Home = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-8 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 shadow-lg"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-4 sm:p-6 md:p-8 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 shadow-lg"
               >
-                <FaQuoteLeft className="text-4xl text-primary/30 mb-4" />
-                <p className="text-[var(--text-secondary)] leading-relaxed mb-6 italic">
+                <FaQuoteLeft className="text-2xl sm:text-3xl md:text-4xl text-primary/30 mb-3 sm:mb-4" />
+                <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed mb-4 sm:mb-6 italic line-clamp-4 sm:line-clamp-none">
                   "{testimonial.text}"
                 </p>
-                <div className="flex items-center space-x-1 mb-4">
+                <div className="flex items-center space-x-1 mb-3 sm:mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} className="text-primary text-lg" />
+                    <FaStar key={i} className="text-primary text-sm sm:text-base md:text-lg" />
                   ))}
                 </div>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3 sm:space-x-4">
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/50"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-primary/50"
                   />
                   <div>
-                    <h4 className="text-[var(--text-primary)] font-bold">{testimonial.name}</h4>
-                    <p className="text-[var(--text-tertiary)] text-sm">{testimonial.position}</p>
+                    <h4 className="text-sm sm:text-base text-[var(--text-primary)] font-bold">{testimonial.name}</h4>
+                    <p className="text-xs sm:text-sm text-[var(--text-tertiary)]">{testimonial.position}</p>
                   </div>
                 </div>
               </motion.div>
@@ -414,20 +414,20 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent to-[var(--bg-secondary)]/50">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-transparent to-[var(--bg-secondary)]/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Our <span className="text-primary">Impact</span>
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {[
               { number: '2+', label: 'Years Experience', icon: '🚀', color: 'from-blue-500/20 to-primary/20' },
               { number: '30+', label: 'Happy Clients', icon: '😊', color: 'from-green-500/20 to-primary/20' },
@@ -440,14 +440,14 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className={`relative text-center p-8 bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-2xl border border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-lg hover:shadow-primary/30 overflow-hidden group`}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className={`relative text-center p-4 sm:p-6 md:p-8 bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-xl sm:rounded-2xl border border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-lg hover:shadow-primary/30 overflow-hidden group`}
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-300"></div>
+                <div className="absolute top-0 right-0 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-300"></div>
                 <div className="relative z-10">
-                  <div className="text-5xl mb-4">{stat.icon}</div>
-                  <h3 className="text-6xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform duration-300">{stat.number}</h3>
-                  <p className="text-[var(--text-secondary)] text-lg font-semibold">{stat.label}</p>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4">{stat.icon}</div>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-1 sm:mb-3 group-hover:scale-110 transition-transform duration-300">{stat.number}</h3>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[var(--text-secondary)] font-semibold">{stat.label}</p>
                 </div>
               </motion.div>
             ))}

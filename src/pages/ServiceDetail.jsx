@@ -337,12 +337,12 @@ const ServiceDetail = () => {
   const ServiceIcon = service.icon
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-20">
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-4 mb-8">
+      <div className="max-w-7xl mx-auto px-4 mb-4 sm:mb-6 md:mb-8">
         <Link
           to="/services"
-          className="inline-flex items-center text-primary hover:text-[#00B8CE] transition-colors duration-300 group"
+          className="inline-flex items-center text-primary hover:text-[#00B8CE] transition-colors duration-300 group text-sm sm:text-base"
         >
           <FaArrowLeft className="mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
           Back to Services
@@ -354,22 +354,22 @@ const ServiceDetail = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-7xl mx-auto px-4 mb-16"
+        className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16"
       >
-        <div className="flex items-center space-x-4 mb-6">
-          <div className="w-20 h-20 bg-primary/10 rounded-xl flex items-center justify-center">
-            <ServiceIcon className="text-5xl text-primary" />
+        <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-4 sm:mb-6">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <ServiceIcon className="text-3xl sm:text-4xl md:text-5xl text-primary" />
           </div>
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-primary)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)]">
               {service.title}
             </h1>
           </div>
         </div>
-        <p className="text-2xl md:text-3xl text-primary font-semibold mb-6">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary font-semibold mb-4 sm:mb-6">
           {service.tagline}
         </p>
-        <p className="text-xl text-[var(--text-tertiary)] leading-relaxed max-w-4xl">
+        <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] leading-relaxed max-w-4xl">
           {service.description}
         </p>
       </motion.div>
@@ -379,9 +379,9 @@ const ServiceDetail = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-7xl mx-auto px-4 mb-16"
+        className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16"
       >
-        <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
           <img
             src={service.image1}
             alt={`${service.title} showcase`}
@@ -392,26 +392,26 @@ const ServiceDetail = () => {
       </motion.div>
 
       {/* Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 mb-16">
+      <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8">
             Key Features
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {service.features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="flex items-start space-x-3 bg-[var(--bg-secondary)] p-6 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300"
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
+                className="flex items-start space-x-2 sm:space-x-3 bg-[var(--bg-secondary)] p-4 sm:p-5 md:p-6 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300"
               >
-                <FaCheckCircle className="text-primary text-xl mt-1 flex-shrink-0" />
-                <span className="text-[var(--text-secondary)] text-lg">{feature}</span>
+                <FaCheckCircle className="text-primary text-base sm:text-lg md:text-xl mt-0.5 flex-shrink-0" />
+                <span className="text-sm sm:text-base md:text-lg text-[var(--text-secondary)]">{feature}</span>
               </motion.div>
             ))}
           </div>
@@ -419,23 +419,23 @@ const ServiceDetail = () => {
       </div>
 
       {/* Technologies */}
-      <div className="max-w-7xl mx-auto px-4 mb-16">
+      <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8">
             Technologies We Use
           </h2>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
             {service.technologies.map((tech, index) => (
               <motion.span
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.05 }}
-                className="px-6 py-3 bg-primary/10 text-primary rounded-full text-lg font-semibold border border-primary/30 hover:bg-primary/20 transition-all duration-300"
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.03 }}
+                className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-primary/10 text-primary rounded-full text-sm sm:text-base md:text-lg font-semibold border border-primary/30 hover:bg-primary/20 transition-all duration-300"
               >
                 {tech}
               </motion.span>
@@ -449,9 +449,9 @@ const ServiceDetail = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.7 }}
-        className="max-w-7xl mx-auto px-4 mb-16"
+        className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16"
       >
-        <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
           <img
             src={service.image2}
             alt={`${service.title} in action`}
@@ -462,26 +462,26 @@ const ServiceDetail = () => {
       </motion.div>
 
       {/* Benefits */}
-      <div className="max-w-7xl mx-auto px-4 mb-16">
+      <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-12 rounded-2xl border border-[var(--border-color)]"
+          className="bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)] p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl border border-[var(--border-color)]"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8">
             Benefits
           </h2>
-          <ul className="space-y-4">
+          <ul className="space-y-3 sm:space-y-4">
             {service.benefits.map((benefit, index) => (
               <motion.li
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                className="flex items-start space-x-4 text-lg text-[var(--text-secondary)]"
+                transition={{ duration: 0.5, delay: 0.9 + index * 0.05 }}
+                className="flex items-start space-x-3 sm:space-x-4 text-sm sm:text-base md:text-lg text-[var(--text-secondary)]"
               >
-                <FaCheckCircle className="text-primary text-2xl mt-1 flex-shrink-0" />
+                <FaCheckCircle className="text-primary text-lg sm:text-xl md:text-2xl mt-0.5 flex-shrink-0" />
                 <span>{benefit}</span>
               </motion.li>
             ))}
@@ -490,29 +490,29 @@ const ServiceDetail = () => {
       </div>
 
       {/* Process */}
-      <div className="max-w-7xl mx-auto px-4 mb-16">
+      <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8">
             Our Process
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {service.process.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.1 + index * 0.1 }}
-                className="bg-[var(--bg-secondary)] p-6 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 relative"
+                transition={{ duration: 0.5, delay: 1.1 + index * 0.05 }}
+                className="bg-[var(--bg-secondary)] p-4 sm:p-5 md:p-6 rounded-xl border border-[var(--border-color)] hover:border-primary/50 transition-all duration-300 relative"
               >
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base md:text-xl shadow-lg">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3 mt-2">{step.step}</h3>
-                <p className="text-[var(--text-tertiary)]">{step.description}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-primary mb-2 sm:mb-3 mt-1 sm:mt-2">{step.step}</h3>
+                <p className="text-sm sm:text-base text-[var(--text-tertiary)]">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -526,16 +526,16 @@ const ServiceDetail = () => {
         transition={{ duration: 0.6, delay: 1.2 }}
         className="max-w-7xl mx-auto px-4"
       >
-        <div className="bg-gradient-to-r from-primary/10 to-primary/20 border border-primary/30 rounded-2xl p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6">
+        <div className="bg-gradient-to-r from-primary/10 to-primary/20 border border-primary/30 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-[var(--text-tertiary)] mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--text-tertiary)] mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Let's discuss how our {service.title.toLowerCase()} services can help transform your business.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
+            className="inline-block bg-primary hover:bg-[#007A8C] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/50"
           >
             Contact Us Today
           </Link>

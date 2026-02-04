@@ -33,33 +33,33 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
             <img
               src="/assets/companylogo.png"
               alt="Zentik IT Solution Logo"
-              className="h-16 w-auto object-contain"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain"
               onError={(e) => {
                 e.target.style.display = 'none'
                 e.target.nextSibling.style.display = 'flex'
               }}
             />
             <div
-              className="h-16 w-16 bg-primary rounded-lg flex items-center justify-center"
+              className="h-12 sm:h-14 md:h-16 w-12 sm:w-14 md:w-16 bg-primary rounded-lg flex items-center justify-center"
               style={{ display: 'none' }}
             >
-              <span className="text-white font-bold text-2xl">ZI</span>
+              <span className="text-white font-bold text-xl sm:text-2xl">ZI</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative text-lg font-medium transition-colors duration-300 ${
+                className={`relative text-base lg:text-lg font-medium transition-colors duration-300 ${
                   location.pathname === link.path
                     ? 'text-primary'
                     : 'text-[var(--text-secondary)] hover:text-primary'
@@ -80,7 +80,8 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[var(--text-primary)] text-3xl focus:outline-none"
+              className="text-[var(--text-primary)] text-2xl sm:text-3xl focus:outline-none p-2 -mr-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <HiX /> : <HiMenu />}
             </button>
@@ -93,14 +94,14 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden pb-4"
+            className="md:hidden pb-4 bg-[var(--bg-primary)]/95 backdrop-blur-md rounded-b-xl"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block py-3 text-lg font-medium transition-colors duration-300 ${
+                className={`block py-3 px-2 text-base sm:text-lg font-medium transition-colors duration-300 ${
                   location.pathname === link.path
                     ? 'text-primary'
                     : 'text-[var(--text-secondary)] hover:text-primary'

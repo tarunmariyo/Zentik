@@ -290,3 +290,80 @@ body {
     height: 220px;
   }
 }
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  /* Reduce padding on mobile */
+  .mobile-px {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Smaller scrollbar on mobile */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+  }
+  
+  /* Optimize animations for mobile performance */
+  .glow-orb {
+    filter: blur(40px);
+    opacity: 0.25;
+  }
+  
+  .orb-1, .orb-2, .orb-3, .orb-4, .orb-5, .orb-6 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Improve text readability on small screens */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Card optimizations for mobile */
+@layer components {
+  .mobile-card {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .mobile-section {
+    @apply py-12 sm:py-16 md:py-20 px-4;
+  }
+  
+  .mobile-heading {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  
+  .mobile-subheading {
+    @apply text-lg sm:text-xl;
+  }
+}
